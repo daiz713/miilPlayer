@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "miilPlayer",
+  "short_name": "miilPlayer",
+  "description": "miil photo viewer",
+  "version": "0.0.1",
+  "minimum_chrome_version": "38",
+
+  "icons": {
+    "16" : "icon-yummy.png",
+    "48" : "icon-yummy.png",
+    "128": "icon-yummy.png"
+  },
+
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+
+  "permissions": ["storage", "<all_urls>"]
+}

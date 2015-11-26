@@ -1,0 +1,22 @@
+{
+  "name": "miilPlayer",
+  "version": "1.0.0",
+  "authors": [
+    "daiiz"
+  ],
+  "description": "miil photo slideshow",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-fab": "PolymerElements/paper-fab#~1.1.0",
+    "paper-icon-button": "PolymerElements/paper-icon-button#~1.0.5",
+    "paper-progress": "PolymerElements/paper-progress#~1.0.7"
+  }
+}
