@@ -1,0 +1,2 @@
+module SampleusersHelper
+end

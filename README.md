@@ -1,17 +1,17 @@
-# SeedChromeApp
-A minimum configuration for chrome app.
+# miilPlayer
 
-## Chromeのパスを指定
-Mac OS Xのデフォルト以外の場所にChromeをインストールした場合は、ディレクトリのパスを指定する必要があります。
-seedChromeAppの`/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome`の部分を変更してください。
+## Run MongoDB
+```
+$ mongod -dbpath ~/mongodata/db
+```
 
-## 実行
-wwwディレクトリの内容をChrome Appとして起動します。
+## Run Rails server
 ```
-$ chmod u+x seedChromeApp
-$ ./seedChromeApp
+$ cd miilPlayer/miilplayer
+$ bundle exec rails server
 ```
-または
+
+## Run Chrome app
 ```
-$ sh seedChromeApp
+$ ./run-miilPlayer
 ```
