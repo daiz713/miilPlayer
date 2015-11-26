@@ -43,3 +43,6 @@ group :development do
   gem 'spring'
 end
 
+#gem 'mongo_mapper'
+#gem 'bson_ext' # bsonを扱えるようにする
+gem 'mongoid', '~> 4.0.0'  # ODM
