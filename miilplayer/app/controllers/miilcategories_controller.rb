@@ -22,11 +22,12 @@ class MiilcategoriesController < ApplicationController
         code, message = res.status
         if code == '200'
             # DBに登録
-            #scan_miilcategories_photos(res.read)
+            data = res.read
+            scan_miilcategories_photos(data)
             # クライントに返却
             render :json => {
                 'category_id' => @categoryId,
-                'category_photo' => (ActiveSupport::JSON.decode res.read)
+                'category_photo' => (ActiveSupport::JSON.decode data)
             }
         end
     end
