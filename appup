@@ -1,0 +1,2 @@
+cd miilplayer
+bundle exec rails server
