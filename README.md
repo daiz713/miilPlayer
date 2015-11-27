@@ -2,13 +2,17 @@
 
 ## Run MongoDB
 ```
-$ mongod -dbpath ~/mongodata/db
+$ ./dbup
+```
+
+## Run DevServer
+```
+$ ./devappup
 ```
 
 ## Run Rails server
 ```
-$ cd miilPlayer/miilplayer
-$ bundle exec rails server
+$ ./appup
 ```
 
 ## Run Chrome app
