@@ -1,6 +1,6 @@
+var DEFAULT_WIDTH  = 296;
+var DEFAULT_HEIGHT = 296;
 chrome.app.runtime.onLaunched.addListener(function (launchData) {
-    var DEFAULT_WIDTH  = 296;
-    var DEFAULT_HEIGHT = 296;
     chrome.storage.local.get(["main_window_width", "main_window_height"], function (items) {
         var w = items["main_window_width"]  || DEFAULT_WIDTH;
         var h = items["main_window_height"] || DEFAULT_HEIGHT;
@@ -25,8 +25,10 @@ var keepMainWindowSize = function (width, height) {
 // MainWindowを開く
 var createMainWindow = function (width, height) {
     chrome.app.window.create('index.html', {
-        width: width,
+        width : width,
         height: height,
+        minWidth : DEFAULT_WIDTH,
+        minHeight: DEFAULT_HEIGHT,
         type: 'shell',
         singleton: false
     },function(appWindow) {
