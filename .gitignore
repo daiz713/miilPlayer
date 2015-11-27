@@ -1,5 +1,5 @@
 .DS_Store
 bower_components/
 /miilplayer/vendor/bundle
-/testserver/vendor/bundle
-/testserver/test-*.json
+/miil-dev-server/vendor/bundle
+/miil-dev-server/test-*.json
