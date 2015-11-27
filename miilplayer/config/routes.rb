@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :miilraws
   resources :sampleusers
   resources :examples
   resources :miilcategories

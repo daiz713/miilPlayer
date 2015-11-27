@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @miilraw.photo_id %>
+</p>
+
+<p>
+  <strong>Photo title:</strong>
+  <%= @miilraw.photo_title %>
+</p>
+
+<p>
+  <strong>Photo url:</strong>
+  <%= @miilraw.photo_url %>
+</p>
+
+<p>
+  <strong>Page url:</strong>
+  <%= @miilraw.page_url %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @miilraw.category_id %>
+</p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @miilraw.recipe_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @miilraw.user_id %>
+</p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @miilraw.user_name %>
+</p>
+
+<p>
+  <strong>User icon url:</strong>
+  <%= @miilraw.user_icon_url %>
+</p>
+
+<%= link_to 'Edit', edit_miilraw_path(@miilraw) %> |
+<%= link_to 'Back', miilraws_path %>

@@ -1,0 +1,53 @@
+<%= form_for(@miilraw) do |f| %>
+  <% if @miilraw.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@miilraw.errors.count, "error") %> prohibited this miilraw from being saved:</h2>
+
+      <ul>
+      <% @miilraw.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :photo_id %><br>
+    <%= f.text_field :photo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_title %><br>
+    <%= f.text_field :photo_title %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_url %><br>
+    <%= f.text_field :photo_url %>
+  </div>
+  <div class="field">
+    <%= f.label :page_url %><br>
+    <%= f.text_field :page_url %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.text_field :category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :recipe_id %><br>
+    <%= f.text_field :recipe_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_name %><br>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :user_icon_url %><br>
+    <%= f.text_field :user_icon_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
