@@ -1,2 +1,4 @@
+#!/bin/sh
+
 cd miilplayer
 bundle exec rails server

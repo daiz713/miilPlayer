@@ -1,1 +1,3 @@
+#!/bin/sh
+
 mongod -dbpath ~/mongodata/db
