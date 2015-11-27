@@ -69,6 +69,6 @@ class MiilrawsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def miilraw_params
-      params.require(:miilraw).permit(:photo_id, :photo_title, :photo_url, :page_url, :category_id, :recipe_id, :user_id, :user_name, :user_icon_url)
+      params.require(:miilraw).permit(:photo_id, :photo_title, :photo_url, :page_url, :category_id, :recipe_id, :user_id, :user_name, :user_icon_url, :taken_at, :venue_name, :venue_id, :venue_web)
     end
 end

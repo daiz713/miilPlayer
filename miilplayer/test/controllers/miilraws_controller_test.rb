@@ -18,7 +18,7 @@ class MiilrawsControllerTest < ActionController::TestCase
 
   test "should create miilraw" do
     assert_difference('Miilraw.count') do
-      post :create, miilraw: { category_id: @miilraw.category_id, page_url: @miilraw.page_url, photo_id: @miilraw.photo_id, photo_title: @miilraw.photo_title, photo_url: @miilraw.photo_url, recipe_id: @miilraw.recipe_id, user_icon_url: @miilraw.user_icon_url, user_id: @miilraw.user_id, user_name: @miilraw.user_name }
+      post :create, miilraw: { category_id: @miilraw.category_id, page_url: @miilraw.page_url, photo_id: @miilraw.photo_id, photo_title: @miilraw.photo_title, photo_url: @miilraw.photo_url, recipe_id: @miilraw.recipe_id, taken_at: @miilraw.taken_at, user_icon_url: @miilraw.user_icon_url, user_id: @miilraw.user_id, user_name: @miilraw.user_name, venue_id: @miilraw.venue_id, venue_name: @miilraw.venue_name, venue_web: @miilraw.venue_web }
     end
 
     assert_redirected_to miilraw_path(assigns(:miilraw))
@@ -35,7 +35,7 @@ class MiilrawsControllerTest < ActionController::TestCase
   end
 
   test "should update miilraw" do
-    patch :update, id: @miilraw, miilraw: { category_id: @miilraw.category_id, page_url: @miilraw.page_url, photo_id: @miilraw.photo_id, photo_title: @miilraw.photo_title, photo_url: @miilraw.photo_url, recipe_id: @miilraw.recipe_id, user_icon_url: @miilraw.user_icon_url, user_id: @miilraw.user_id, user_name: @miilraw.user_name }
+    patch :update, id: @miilraw, miilraw: { category_id: @miilraw.category_id, page_url: @miilraw.page_url, photo_id: @miilraw.photo_id, photo_title: @miilraw.photo_title, photo_url: @miilraw.photo_url, recipe_id: @miilraw.recipe_id, taken_at: @miilraw.taken_at, user_icon_url: @miilraw.user_icon_url, user_id: @miilraw.user_id, user_name: @miilraw.user_name, venue_id: @miilraw.venue_id, venue_name: @miilraw.venue_name, venue_web: @miilraw.venue_web }
     assert_redirected_to miilraw_path(assigns(:miilraw))
   end
 

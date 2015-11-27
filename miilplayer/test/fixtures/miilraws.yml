@@ -10,6 +10,10 @@ one:
   user_id: MyString
   user_name: MyString
   user_icon_url: MyString
+  taken_at: MyString
+  venue_name: MyString
+  venue_id: MyString
+  venue_web: MyString
 
 two:
   photo_id: MyString
@@ -21,3 +25,7 @@ two:
   user_id: MyString
   user_name: MyString
   user_icon_url: MyString
+  taken_at: MyString
+  venue_name: MyString
+  venue_id: MyString
+  venue_web: MyString

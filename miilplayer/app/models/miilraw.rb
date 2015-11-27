@@ -10,4 +10,8 @@ class Miilraw
   field :user_id, type: String
   field :user_name, type: String
   field :user_icon_url, type: String
+  field :taken_at, type: String
+  field :venue_name, type: String
+  field :venue_id, type: String
+  field :venue_web, type: String
 end

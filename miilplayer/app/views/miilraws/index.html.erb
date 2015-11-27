@@ -14,6 +14,10 @@
       <th>User</th>
       <th>User name</th>
       <th>User icon url</th>
+      <th>Taken at</th>
+      <th>Venue name</th>
+      <th>Venue</th>
+      <th>Venue web</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,6 +34,10 @@
         <td><%= miilraw.user_id %></td>
         <td><%= miilraw.user_name %></td>
         <td><%= miilraw.user_icon_url %></td>
+        <td><%= miilraw.taken_at %></td>
+        <td><%= miilraw.venue_name %></td>
+        <td><%= miilraw.venue_id %></td>
+        <td><%= miilraw.venue_web %></td>
         <td><%= link_to 'Show', miilraw %></td>
         <td><%= link_to 'Edit', edit_miilraw_path(miilraw) %></td>
         <td><%= link_to 'Destroy', miilraw, method: :delete, data: { confirm: 'Are you sure?' } %></td>
