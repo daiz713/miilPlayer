@@ -94,7 +94,7 @@ class MiilPlayer {
         });
 
         // 写真がホバーされた場合，ホバーが外された場合
-        this.photoPanel.$dom.on('mouseenter', e => {
+        $('body').on('mouseenter', e => {
             if (document.hasFocus()) this.showBars();
         }).on('mouseleave', e => {
             this.hideBars();

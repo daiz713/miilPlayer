@@ -142,7 +142,7 @@ var MiilPlayer = (function () {
             });
 
             // 写真がホバーされた場合，ホバーが外された場合
-            this.photoPanel.$dom.on('mouseenter', function (e) {
+            $('body').on('mouseenter', function (e) {
                 if (document.hasFocus()) _this.showBars();
             }).on('mouseleave', function (e) {
                 _this.hideBars();
