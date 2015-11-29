@@ -229,7 +229,7 @@ var PhotoPanel = (function () {
         value: function _showPhoto(uri) {
             this.$dom.css({ 'display': 'none' });
             this.$dom.css({ 'background-image': 'url(' + uri + ')' });
-            this.$dom.fadeIn();
+            this.$dom.fadeIn('slow');
         }
     }, {
         key: 'getItemIndexOf',
