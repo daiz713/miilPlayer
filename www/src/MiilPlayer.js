@@ -86,7 +86,7 @@ class MiilPlayer {
         this.pagerBar.centerBtn().on('click', e => {
             // collectionをreplyする
             if (this.pagerBar.centerBtn()[0].icon === 'av:replay') {
-                this.pagerBar.centerBtn()[0].icon = 'av:pause';
+                //this.pagerBar.centerBtn()[0].icon = 'av:pause';
                 this.nextItemIdx = 0;
                 this.showNextItem();
                 this.startSlideShow();

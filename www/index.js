@@ -134,7 +134,7 @@ var MiilPlayer = (function () {
             this.pagerBar.centerBtn().on('click', function (e) {
                 // collectionをreplyする
                 if (_this.pagerBar.centerBtn()[0].icon === 'av:replay') {
-                    _this.pagerBar.centerBtn()[0].icon = 'av:pause';
+                    //this.pagerBar.centerBtn()[0].icon = 'av:pause';
                     _this.nextItemIdx = 0;
                     _this.showNextItem();
                     _this.startSlideShow();
@@ -229,7 +229,7 @@ var PhotoPanel = (function () {
         value: function _showPhoto(uri) {
             this.$dom.css({ 'display': 'none' });
             this.$dom.css({ 'background-image': 'url(' + uri + ')' });
-            this.$dom.fadeIn('slow');
+            this.$dom.fadeIn();
         }
     }, {
         key: 'getItemIndexOf',
