@@ -28,7 +28,7 @@ class MiilcategoriesController < ApplicationController
             # クライントに返却
             render :json => {
                 'category_id'    => @categoryId,
-                'category_photo' => dataset,
+                'photo' => dataset,
                 'next_page' => next_page
             }
         end

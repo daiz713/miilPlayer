@@ -22,7 +22,7 @@ class MiilusersController < ApplicationController
             # クライントに返却
             render :json => {
                 'user_name' => @userName,
-                'user_photo' => dataset,
+                'photo' => dataset,
                 'next_page' => next_page
             }
         end

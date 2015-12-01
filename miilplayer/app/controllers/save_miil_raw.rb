@@ -1,3 +1,5 @@
+require 'base64'
+
 # miilから提供されている写真の生データから，必要なものをDBに保存する
 def save_miil_raw (hash)
     res = []
@@ -37,6 +39,10 @@ def save_miil_raw (hash)
         elsif
             puts '>>>>>>>>> ' + docs[0].photo_url
         end
+
+        # photoをbase64エンコードする
+        # 6 ~ 8秒（10 ~ 20枚）
+        dataset[:photo_url] = 'data:image/png;base64,' + Base64.strict_encode64(open(dataset[:photo_url]).read)
 
         res.push(dataset)
     end
