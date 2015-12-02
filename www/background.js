@@ -4,6 +4,8 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
         height   : 296,
         minWidth : 296,
         minHeight: 296,
+        maxWidth : 296,
+        maxHeight: 296,
         type: 'shell'
     },function(appWindow) {
     });

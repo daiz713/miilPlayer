@@ -43,7 +43,6 @@ var MiilPlayer = (function () {
         this._init();
         this.bindEvents();
         this.INTERVAL = 5000;
-        this.tmpTimer = false;
     }
 
     _createClass(MiilPlayer, [{
@@ -159,19 +158,6 @@ var MiilPlayer = (function () {
                     _this.showPrevItem();
                 }
             });
-
-            // ウィンドウがリサイズされたとき
-            var tmpTimer = false;
-            window.addEventListener('resize', function () {
-                var self = _this;
-                if (tmpTimer !== false) {
-                    console.info(77777);
-                    window.clearTimeout(tmpTimer);
-                }
-                tmpTimer = window.setTimeout(function () {
-                    self.photoPanel._setSize(window.innerWidth, window.innerHeight);
-                }, 200);
-            });
         }
     }]);
 
@@ -263,8 +249,6 @@ var PhotoPanel = (function () {
     }, {
         key: '_setSize',
         value: function _setSize(width, height) {
-            //var width  = window.innerWidth;
-            //var height = window.innerHeight;
             var a = width < height ? width : height;
             console.info(a);
             window.resizeTo(a, a);

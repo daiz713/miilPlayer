@@ -14,8 +14,6 @@ class PhotoPanel {
 
     // 正方形になるように表示する
     _setSize (width, height) {
-        //var width  = window.innerWidth;
-        //var height = window.innerHeight;
         var a = (width < height) ? width : height;
         console.info(a);
         window.resizeTo(a, a);
