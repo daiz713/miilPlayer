@@ -43,6 +43,7 @@ var MiilPlayer = (function () {
         this._init();
         this.bindEvents();
         this.INTERVAL = 5000;
+        this.tmpTimer = false;
     }
 
     _createClass(MiilPlayer, [{
@@ -145,6 +146,32 @@ var MiilPlayer = (function () {
             }).on('mouseleave', function (e) {
                 _this.hideBars();
             });
+
+            // 左右矢印ボタンで写真遷移
+            $(window).on('keyup', function (e) {
+                _this.hideBars();
+                var c = e.keyCode;
+                if (c === 39) {
+                    // `→`
+                    _this.showNextItem();
+                } else if (c === 37) {
+                    // `←`
+                    _this.showPrevItem();
+                }
+            });
+
+            // ウィンドウがリサイズされたとき
+            var tmpTimer = false;
+            window.addEventListener('resize', function () {
+                var self = _this;
+                if (tmpTimer !== false) {
+                    console.info(77777);
+                    window.clearTimeout(tmpTimer);
+                }
+                tmpTimer = window.setTimeout(function () {
+                    self.photoPanel._setSize(window.innerWidth, window.innerHeight);
+                }, 200);
+            });
         }
     }]);
 
@@ -226,12 +253,25 @@ var PhotoPanel = (function () {
     _createClass(PhotoPanel, [{
         key: '_showPhoto',
         value: function _showPhoto(item) {
-            //this.$dom.css({'background-image': ''});
             this.$dom.find('#photoview').css({ 'display': 'none' });
-            //this.$dom.css({'background-image': 'url(' + item.photo_uri + ')'});
             this.$dom.find('#photoview')[0].src = item.photo_uri;
             this.$dom[0].dataset.page = item.page_uri || '';
             this.$dom.find('#photoview').fadeIn('slow');
+        }
+
+        // 正方形になるように表示する
+    }, {
+        key: '_setSize',
+        value: function _setSize(width, height) {
+            //var width  = window.innerWidth;
+            //var height = window.innerHeight;
+            var a = width < height ? width : height;
+            console.info(a);
+            window.resizeTo(a, a);
+            this.$dom.find('#photoview').css({
+                'width': a + 'px',
+                'height': a + 'px'
+            });
         }
     }, {
         key: 'getItemIndexOf',

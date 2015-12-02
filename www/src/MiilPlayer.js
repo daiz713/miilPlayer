@@ -97,5 +97,31 @@ class MiilPlayer {
         }).on('mouseleave', e => {
             this.hideBars();
         });
+
+        // 左右矢印ボタンで写真遷移
+        $(window).on('keyup', e => {
+            this.hideBars();
+            var c = e.keyCode;
+            if (c === 39) {
+                // `→`
+                this.showNextItem();
+            }else if (c === 37) {
+                // `←`
+                this.showPrevItem();
+            }
+        });
+
+        // ウィンドウがリサイズされたとき
+        var tmpTimer = false;
+        window.addEventListener('resize', () => {
+            var self = this;
+            if (tmpTimer !== false) {
+                console.info(77777);
+                window.clearTimeout(tmpTimer);
+            }
+            tmpTimer = window.setTimeout(function () {
+                self.photoPanel._setSize(window.innerWidth, window.innerHeight);
+            }, 200);
+        });
     }
 }

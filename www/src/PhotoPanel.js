@@ -6,12 +6,23 @@ class PhotoPanel {
     }
 
     _showPhoto (item) {
-        //this.$dom.css({'background-image': ''});
         this.$dom.find('#photoview').css({'display': 'none'});
-        //this.$dom.css({'background-image': 'url(' + item.photo_uri + ')'});
         this.$dom.find('#photoview')[0].src = item.photo_uri;
         this.$dom[0].dataset.page = item.page_uri || '';
         this.$dom.find('#photoview').fadeIn('slow');
+    }
+
+    // 正方形になるように表示する
+    _setSize (width, height) {
+        //var width  = window.innerWidth;
+        //var height = window.innerHeight;
+        var a = (width < height) ? width : height;
+        console.info(a);
+        window.resizeTo(a, a);
+        this.$dom.find('#photoview').css({
+            'width' : a + 'px',
+            'height': a + 'px'
+        });
     }
 
     getItemIndexOf (idx) {
