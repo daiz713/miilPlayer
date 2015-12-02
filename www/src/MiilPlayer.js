@@ -20,7 +20,19 @@ class MiilPlayer {
         this.pagerBar.show();
     }
 
-    showItems (apiUrl) {
+    showSamples () {
+        var photo_stock = [];
+        sampleBase64Photos.forEach(photo => {
+            photo_stock.push({photo: photo, page: '#'});
+        });
+        // 初期collectionを登録
+        this.photoPanel.setCollection(photo_stock);
+        // 初期画像を表示
+        this.showNextItem();
+        this.startSlideShow();
+    }
+
+    showItemsByAPI (apiUrl) {
         var self = this;
         var photo_stock = [];
         var xhr = new XMLHttpRequest();

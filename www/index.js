@@ -58,8 +58,21 @@ var MiilPlayer = (function () {
             this.pagerBar.show();
         }
     }, {
-        key: 'showItems',
-        value: function showItems(apiUrl) {
+        key: 'showSamples',
+        value: function showSamples() {
+            var photo_stock = [];
+            sampleBase64Photos.forEach(function (photo) {
+                photo_stock.push({ photo: photo, page: '#' });
+            });
+            // 初期collectionを登録
+            this.photoPanel.setCollection(photo_stock);
+            // 初期画像を表示
+            this.showNextItem();
+            this.startSlideShow();
+        }
+    }, {
+        key: 'showItemsByAPI',
+        value: function showItemsByAPI(apiUrl) {
             var self = this;
             var photo_stock = [];
             var xhr = new XMLHttpRequest();
