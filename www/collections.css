@@ -56,21 +56,21 @@ paper-icon-button {
 
 .card {
     background-color: #fff;
-    width: 209px;
-    height: 209px;
+    width: 212px;
+    height: 212px;
     display: inline-block;
-    margin-right: 6px;
+    margin-right: 5px;
     margin-bottom: 8px;
 }
 
 .cardview {
-    width: 209px;
-    height: 209px;
+    width: 212px;
+    height: 212px;
 }
 
 .cardtitle {
     position: absolute;
-    width: 209px;
+    width: 212px;
     box-sizing: border-box;
     padding: 6px;
     font-family: roboto;
