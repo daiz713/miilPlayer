@@ -11,9 +11,6 @@ $(function () {
     // 上下Barは初期状態では非表示
     mp.menuBar.hide();
     mp.pagerBar.hide();
-
-    // http://localhost:3000/miilusers/daiz.json
-    // mp.showItemsByAPI('http://localhost:3000/miilusers/daiz.json');
     mp.showSamples();
     console.info('main ok');
 });

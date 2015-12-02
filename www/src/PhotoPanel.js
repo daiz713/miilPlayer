@@ -10,10 +10,8 @@ class PhotoPanel {
     }
 
     _showPhoto (item) {
-        //this.$dom.find('#photoview').css({'display': 'none'});
         this.$dom.find('#photoview')[0].src = item.photo_uri;
         this.$dom[0].dataset.page = item.page_uri || '';
-        //this.$dom.find('#photoview').fadeIn('slow');
     }
 
     // 正方形になるように表示する

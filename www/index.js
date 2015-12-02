@@ -23,12 +23,28 @@ var MenuBar = (function () {
             this.$dom.fadeIn();
         }
     }, {
+        key: 'openPage',
+        value: function openPage(uri) {
+            if (uri !== '' && uri !== '#') {
+                window.open(uri);
+            }
+        }
+    }, {
         key: 'bindEvents',
         value: function bindEvents() {
-            this.$dom.find('#btn_use_photos').on('click', function (e) {
+            var _this = this;
+
+            // ユーザボタン
+            this.$dom.find('#btn_user_photos').on('click', function (e) {
                 var userName = 'daiz'; //決め打ち
                 var apiUrl = 'http://localhost:3000/miilusers/' + userName + '.json';
                 mp.showItemsByAPI(apiUrl);
+            });
+
+            // ウェブにアクセスボタン
+            this.$dom.find('#btn_open_page').on('click', function (e) {
+                var pageUrl = $('#photo')[0].dataset.page;
+                _this.openPage(pageUrl);
             });
         }
     }]);
@@ -294,10 +310,8 @@ var PhotoPanel = (function () {
     }, {
         key: '_showPhoto',
         value: function _showPhoto(item) {
-            //this.$dom.find('#photoview').css({'display': 'none'});
             this.$dom.find('#photoview')[0].src = item.photo_uri;
             this.$dom[0].dataset.page = item.page_uri || '';
-            //this.$dom.find('#photoview').fadeIn('slow');
         }
 
         // 正方形になるように表示する
