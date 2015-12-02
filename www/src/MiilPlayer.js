@@ -26,6 +26,7 @@ class MiilPlayer {
             photo_stock.push({photo: photo, page: '#'});
         });
         // 初期collectionを登録
+        this._init ();
         this.photoPanel.setCollection(photo_stock);
         // 初期画像を表示
         this.showNextItem();
@@ -47,6 +48,7 @@ class MiilPlayer {
                 photo_stock.push({photo: photo, page: page});
             }
             // 初期collectionを登録
+            self._init ();
             self.photoPanel.setCollection(photo_stock);
             // 初期画像を表示
             self.showNextItem();
@@ -103,6 +105,7 @@ class MiilPlayer {
 
     _init () {
         this.nextItemIdx = 0;
+        this.photoPanel._init();
     }
 
     bindEvents () {

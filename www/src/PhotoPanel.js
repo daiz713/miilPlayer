@@ -5,6 +5,10 @@ class PhotoPanel {
         this.bindEvents();
     }
 
+    _init () {
+        this.collection = [];
+    }
+
     _showPhoto (item) {
         //this.$dom.find('#photoview').css({'display': 'none'});
         this.$dom.find('#photoview')[0].src = item.photo_uri;
@@ -28,7 +32,9 @@ class PhotoPanel {
     }
 
     // Playerによって再生される一連の写真
+    // set関数では，最初にcollectionは初期化される
     setCollection (items) {
+        this.collection = [];
         items.forEach(item => {
             var res = {};
             res.photo_uri = item.photo;

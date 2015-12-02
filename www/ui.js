@@ -13,6 +13,7 @@ $(function () {
     mp.pagerBar.hide();
 
     // http://localhost:3000/miilusers/daiz.json
-    mp.showItemsByAPI('http://localhost:3000/miilusers/daiz.json');
+    // mp.showItemsByAPI('http://localhost:3000/miilusers/daiz.json');
+    mp.showSamples();
     console.info('main ok');
 });

@@ -1,25 +1,35 @@
-"use strict";
+'use strict';
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var MenuBar = (function () {
     function MenuBar($dom) {
         _classCallCheck(this, MenuBar);
 
         this.$dom = $dom;
+        this.bindEvents();
     }
 
     _createClass(MenuBar, [{
-        key: "hide",
+        key: 'hide',
         value: function hide() {
             this.$dom.fadeOut();
         }
     }, {
-        key: "show",
+        key: 'show',
         value: function show() {
             this.$dom.fadeIn();
+        }
+    }, {
+        key: 'bindEvents',
+        value: function bindEvents() {
+            this.$dom.find('#btn_use_photos').on('click', function (e) {
+                var userName = 'daiz'; //決め打ち
+                var apiUrl = 'http://localhost:3000/miilusers/' + userName + '.json';
+                mp.showItemsByAPI(apiUrl);
+            });
         }
     }]);
 
@@ -65,6 +75,7 @@ var MiilPlayer = (function () {
                 photo_stock.push({ photo: photo, page: '#' });
             });
             // 初期collectionを登録
+            this._init();
             this.photoPanel.setCollection(photo_stock);
             // 初期画像を表示
             this.showNextItem();
@@ -87,6 +98,7 @@ var MiilPlayer = (function () {
                     photo_stock.push({ photo: photo, page: page });
                 }
                 // 初期collectionを登録
+                self._init();
                 self.photoPanel.setCollection(photo_stock);
                 // 初期画像を表示
                 self.showNextItem();
@@ -150,6 +162,7 @@ var MiilPlayer = (function () {
         key: '_init',
         value: function _init() {
             this.nextItemIdx = 0;
+            this.photoPanel._init();
         }
     }, {
         key: 'bindEvents',
@@ -274,6 +287,11 @@ var PhotoPanel = (function () {
     }
 
     _createClass(PhotoPanel, [{
+        key: '_init',
+        value: function _init() {
+            this.collection = [];
+        }
+    }, {
         key: '_showPhoto',
         value: function _showPhoto(item) {
             //this.$dom.find('#photoview').css({'display': 'none'});
@@ -301,11 +319,13 @@ var PhotoPanel = (function () {
         }
 
         // Playerによって再生される一連の写真
+        // set関数では，最初にcollectionは初期化される
     }, {
         key: 'setCollection',
         value: function setCollection(items) {
             var _this = this;
 
+            this.collection = [];
             items.forEach(function (item) {
                 var res = {};
                 res.photo_uri = item.photo;
