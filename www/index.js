@@ -57,6 +57,30 @@ var MiilPlayer = (function () {
             this.menuBar.show();
             this.pagerBar.show();
         }
+    }, {
+        key: 'showItems',
+        value: function showItems(apiUrl) {
+            var self = this;
+            var photo_stock = [];
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', apiUrl, true);
+            xhr.responseType = 'json';
+            xhr.onload = function (e) {
+                var res = this.response;
+                var photos = res.photo.photos;
+                for (var i = 0; i < photos.length; i++) {
+                    var photo = photos[i].photo_url;
+                    var page = photos[i].page_url;
+                    photo_stock.push({ photo: photo, page: page });
+                }
+                // 初期collectionを登録
+                self.photoPanel.setCollection(photo_stock);
+                // 初期画像を表示
+                self.showNextItem();
+                self.startSlideShow();
+            };
+            xhr.send();
+        }
 
         // 自動スライドショーを開始する
     }, {
