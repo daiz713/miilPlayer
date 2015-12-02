@@ -42,7 +42,7 @@ def save_miil_raw (hash)
 
         # photoをbase64エンコードする
         # 6 ~ 8秒（10 ~ 20枚）
-        dataset[:photo_url] = 'data:image/png;base64,' + Base64.strict_encode64(open(dataset[:photo_url]).read)
+        # dataset[:photo_url] = 'data:image/png;base64,' + Base64.strict_encode64(open(dataset[:photo_url]).read)
 
         res.push(dataset)
     end
