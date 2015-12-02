@@ -79,6 +79,12 @@ paper-icon-button {
     margin-top: -42px;
     opacity: 0.85;
     cursor: pointer;
+    min-height: 39px;
+}
+
+.cardtitle:hover {
+    color: #fff;
+    background-color: #312319;
 }
 
 .cb-a {
