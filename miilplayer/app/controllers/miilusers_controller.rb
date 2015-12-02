@@ -12,8 +12,8 @@ class MiilusersController < ApplicationController
     def show
         @userName = params[:id]
         miilApiUrl = 'http://api.miil.me/api/users/'+ @userName +'/photos/public.json'
-        #res = open(miilApiUrl)
-        res = open('http://localhost:4567/miilusersdaiz');
+        res = open(miilApiUrl)
+        #res = open('http://localhost:4567/miilusersdaiz');
         code, message = res.status
         if code == '200'
             # DBに登録

@@ -31,5 +31,19 @@ class MenuBar {
             var pageUrl = $('#photo')[0].dataset.page;
             this.openPage(pageUrl);
         });
+
+        // コレクションパネルボタン
+        this.$dom.find('#btn_open_collections').on('click', e => {
+            chrome.app.window.create('collections.html', {
+                width    : 450,
+                height   : 600,
+                minWidth : 450,
+                maxWidth : 450,
+                minHeight: 600,
+                maxHeight : 600,
+                type: 'shell'
+            },function(appWindow) {
+            });
+        });
     }
 }

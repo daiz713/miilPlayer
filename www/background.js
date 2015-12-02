@@ -8,5 +8,11 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
         maxHeight: 296,
         type: 'shell'
     },function(appWindow) {
-    });
+    });/*
+    chrome.app.window.create('collections.html', {
+        width    : 450,
+        height   : 600,
+        type: 'shell'
+    },function(appWindow) {
+    });*/
 });

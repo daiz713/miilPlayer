@@ -46,6 +46,19 @@ var MenuBar = (function () {
                 var pageUrl = $('#photo')[0].dataset.page;
                 _this.openPage(pageUrl);
             });
+
+            // コレクションパネルボタン
+            this.$dom.find('#btn_open_collections').on('click', function (e) {
+                chrome.app.window.create('collections.html', {
+                    width: 450,
+                    height: 600,
+                    minWidth: 450,
+                    maxWidth: 450,
+                    minHeight: 600,
+                    maxHeight: 600,
+                    type: 'shell'
+                }, function (appWindow) {});
+            });
         }
     }]);
 
