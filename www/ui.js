@@ -11,6 +11,7 @@ $(function () {
     mp.menuBar.hide();
     mp.pagerBar.hide();
 
+    // http://localhost:3000/miilusers/daiz.json
     mp.showItems('http://localhost:3000/miilusers/daiz.json');
     console.info('main ok');
 });
