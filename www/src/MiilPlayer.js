@@ -34,9 +34,8 @@ class MiilPlayer {
         var item = this.photoPanel.getItemIndexOf(this.nextItemIdx);
         var n = true;
         if (item !== null) {
-            var uri = item.photo_uri;
             this.nextItemIdx++;
-            this.photoPanel._showPhoto(uri);
+            this.photoPanel._showPhoto(item);
             this.pagerBar.updateProgressBarByArrIdx(this.nextItemIdx, this.photoPanel.collection.length);
         }else {
             n = false;
@@ -55,9 +54,8 @@ class MiilPlayer {
             var idx = this.nextItemIdx - 2;
             var item = this.photoPanel.getItemIndexOf(idx);
             if (item !== null) {
-                var uri = item.photo_uri;
                 this.nextItemIdx--;
-                this.photoPanel._showPhoto(uri);
+                this.photoPanel._showPhoto(item);
                 this.pagerBar.updateProgressBarByArrIdx(this.nextItemIdx, this.photoPanel.collection.length);
             }else {
                 n = false;

@@ -76,9 +76,8 @@ var MiilPlayer = (function () {
             var item = this.photoPanel.getItemIndexOf(this.nextItemIdx);
             var n = true;
             if (item !== null) {
-                var uri = item.photo_uri;
                 this.nextItemIdx++;
-                this.photoPanel._showPhoto(uri);
+                this.photoPanel._showPhoto(item);
                 this.pagerBar.updateProgressBarByArrIdx(this.nextItemIdx, this.photoPanel.collection.length);
             } else {
                 n = false;
@@ -99,9 +98,8 @@ var MiilPlayer = (function () {
                 var idx = this.nextItemIdx - 2;
                 var item = this.photoPanel.getItemIndexOf(idx);
                 if (item !== null) {
-                    var uri = item.photo_uri;
                     this.nextItemIdx--;
-                    this.photoPanel._showPhoto(uri);
+                    this.photoPanel._showPhoto(item);
                     this.pagerBar.updateProgressBarByArrIdx(this.nextItemIdx, this.photoPanel.collection.length);
                 } else {
                     n = false;
@@ -222,13 +220,16 @@ var PhotoPanel = (function () {
 
         this.$dom = $dom;
         this.collection = [];
+        this.bindEvents();
     }
 
     _createClass(PhotoPanel, [{
         key: '_showPhoto',
-        value: function _showPhoto(uri) {
+        value: function _showPhoto(item) {
+            this.$dom.css({ 'background-image': '' });
             this.$dom.css({ 'display': 'none' });
-            this.$dom.css({ 'background-image': 'url(' + uri + ')' });
+            this.$dom.css({ 'background-image': 'url(' + item.photo_uri + ')' });
+            this.$dom[0].dataset.page = item.page_uri || '';
             this.$dom.fadeIn('slow');
         }
     }, {
@@ -248,6 +249,13 @@ var PhotoPanel = (function () {
                 res.photo_uri = item.photo;
                 res.page_uri = item.page;
                 _this.collection.push(res);
+            });
+        }
+    }, {
+        key: 'bindEvents',
+        value: function bindEvents() {
+            this.$dom.on('click', function (e) {
+                window.open(e.target.dataset.page);
             });
         }
     }]);

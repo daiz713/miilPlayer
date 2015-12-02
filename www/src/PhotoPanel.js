@@ -2,11 +2,14 @@ class PhotoPanel {
     constructor ($dom) {
         this.$dom = $dom;
         this.collection = [];
+        this.bindEvents();
     }
 
-    _showPhoto (uri) {
+    _showPhoto (item) {
+        this.$dom.css({'background-image': ''});
         this.$dom.css({'display': 'none'});
-        this.$dom.css({'background-image': 'url(' + uri + ')'});
+        this.$dom.css({'background-image': 'url(' + item.photo_uri + ')'});
+        this.$dom[0].dataset.page = item.page_uri || '';
         this.$dom.fadeIn('slow');
     }
 
@@ -21,6 +24,12 @@ class PhotoPanel {
             res.photo_uri = item.photo;
             res.page_uri = item.page;
             this.collection.push(res);
+        });
+    }
+
+    bindEvents () {
+        this.$dom.on('click', e => {
+            window.open(e.target.dataset.page);
         });
     }
 
