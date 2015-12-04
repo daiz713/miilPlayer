@@ -3,6 +3,7 @@
 ## 起動前に実行したいコマンドをここに追加します。
 
 babel www/src/*.js > www/index.js
+babel www/src_collection_panel/*.js > www/collections.js
 
 ## wwwディレクトリの内容をChrome Appとして起動します。
 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --load-and-launch-app=`pwd`/www
