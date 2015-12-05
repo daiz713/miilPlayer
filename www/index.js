@@ -79,27 +79,61 @@ var MiilPlayer = (function () {
         this.pagerBar = new PagerBar($pagerBar);
         this.$window = $window;
         this.timer = null;
+        this.query = $window[0].location.hash.replace('#', '');
         this._init();
         this.bindEvents();
         this.INTERVAL = 5000;
     }
 
+    // Queryからapiを取得する
+
     _createClass(MiilPlayer, [{
+        key: 'getQueryAPI',
+        value: function getQueryAPI() {
+            return this.query.split('/')[0];
+        }
+
+        // Queryからコレクション名を取得する
+    }, {
+        key: 'getQueryCollectionName',
+        value: function getQueryCollectionName() {
+            return this.query.split('/')[1];
+        }
+
+        // スライドショーを開始するエントリポイント
+    }, {
+        key: 'beginSlideshow',
+        value: function beginSlideshow() {
+            var api = this.getQueryAPI();
+            var collectionName = this.getQueryCollectionName();
+            console.info(api, collectionName);
+            if (collectionName === 'Sample') {
+                this._showSamples();
+            }
+        }
+
+        // 上下バーを隠す
+    }, {
         key: 'hideBars',
         value: function hideBars() {
             this.menuBar.hide();
             this.pagerBar.hide();
         }
+
+        // 上下バーを表示する
     }, {
         key: 'showBars',
         value: function showBars() {
             this.menuBar.show();
             this.pagerBar.show();
         }
+
+        // サンプルアイテムを表示する
     }, {
-        key: 'showSamples',
-        value: function showSamples() {
+        key: '_showSamples',
+        value: function _showSamples() {
             var photo_stock = [];
+            // Sampleアイテムは配列sampleBase64Photosが保持している
             sampleBase64Photos.forEach(function (photo) {
                 photo_stock.push({ photo: photo, page: '#' });
             });
@@ -108,11 +142,10 @@ var MiilPlayer = (function () {
             this.photoPanel.setCollection(photo_stock);
             // 初期画像を表示
             this.showNextItem();
-            this.startSlideShow();
         }
     }, {
-        key: 'showItemsByAPI',
-        value: function showItemsByAPI(apiUrl) {
+        key: '_showItemsByAPI',
+        value: function _showItemsByAPI(apiUrl) {
             var self = this;
             var photo_stock = [];
             var xhr = new XMLHttpRequest();
@@ -131,20 +164,9 @@ var MiilPlayer = (function () {
                 self.photoPanel.setCollection(photo_stock);
                 // 初期画像を表示
                 self.showNextItem();
-                self.startSlideShow();
             };
             xhr.send();
         }
-
-        // 自動スライドショーを開始する
-    }, {
-        key: 'startSlideShow',
-        value: function startSlideShow() {}
-
-        // 自動スライドショーを解除する
-    }, {
-        key: 'clearSlideShow',
-        value: function clearSlideShow() {}
 
         // 次の写真を表示する
         // NOTE: center-button管理する
@@ -214,7 +236,6 @@ var MiilPlayer = (function () {
                     //this.pagerBar.centerBtn()[0].icon = 'av:pause';
                     _this.nextItemIdx = 0;
                     _this.showNextItem();
-                    _this.startSlideShow();
                 }
             });
 

@@ -11,6 +11,6 @@ $(function () {
     // 上下Barは初期状態では非表示
     mp.menuBar.hide();
     mp.pagerBar.hide();
-    mp.showSamples();
+    mp.beginSlideshow();
     console.info('main ok');
 });

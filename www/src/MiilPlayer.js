@@ -5,23 +5,48 @@ class MiilPlayer {
         this.pagerBar = new PagerBar($pagerBar);
         this.$window = $window;
         this.timer = null;
+        this.query = ($window[0].location.hash).replace('#', '');
         this._init();
         this.bindEvents();
         this.INTERVAL = 5000;
     }
 
+    // Queryからapiを取得する
+    getQueryAPI () {
+        return this.query.split('/')[0];
+    }
+
+    // Queryからコレクション名を取得する
+    getQueryCollectionName () {
+        return this.query.split('/')[1];
+    }
+
+    // スライドショーを開始するエントリポイント
+    beginSlideshow () {
+        var api = this.getQueryAPI();
+        var collectionName = this.getQueryCollectionName();
+        console.info(api, collectionName);
+        if (collectionName === 'Sample') {
+            this._showSamples ();
+        }
+    }
+
+    // 上下バーを隠す
     hideBars () {
         this.menuBar.hide();
         this.pagerBar.hide();
     }
 
+    // 上下バーを表示する
     showBars () {
         this.menuBar.show();
         this.pagerBar.show();
     }
 
-    showSamples () {
+    // サンプルアイテムを表示する
+    _showSamples () {
         var photo_stock = [];
+        // Sampleアイテムは配列sampleBase64Photosが保持している
         sampleBase64Photos.forEach(photo => {
             photo_stock.push({photo: photo, page: '#'});
         });
@@ -30,10 +55,9 @@ class MiilPlayer {
         this.photoPanel.setCollection(photo_stock);
         // 初期画像を表示
         this.showNextItem();
-        this.startSlideShow();
     }
 
-    showItemsByAPI (apiUrl) {
+    _showItemsByAPI (apiUrl) {
         var self = this;
         var photo_stock = [];
         var xhr = new XMLHttpRequest();
@@ -52,17 +76,8 @@ class MiilPlayer {
             self.photoPanel.setCollection(photo_stock);
             // 初期画像を表示
             self.showNextItem();
-            self.startSlideShow();
         }
         xhr.send();
-    }
-
-    // 自動スライドショーを開始する
-    startSlideShow () {
-    }
-
-    // 自動スライドショーを解除する
-    clearSlideShow () {
     }
 
     // 次の写真を表示する
@@ -125,7 +140,6 @@ class MiilPlayer {
                 //this.pagerBar.centerBtn()[0].icon = 'av:pause';
                 this.nextItemIdx = 0;
                 this.showNextItem();
-                this.startSlideShow();
             }
         });
 
