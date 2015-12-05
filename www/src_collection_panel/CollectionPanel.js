@@ -7,8 +7,9 @@ class PhotosStage {
 
     bindEvents () {
         // コレクションカードのタイトル領域をクリックされたとき
-        this.$dom.on('click', '', e => {
-
+        this.$dom.on('click', '.cardtitle', e => {
+            var title = e.target.dataset.name;
+            console.warn(title);
         });
     }
 }

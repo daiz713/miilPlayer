@@ -19,7 +19,10 @@ var PhotosStage = (function () {
         key: 'bindEvents',
         value: function bindEvents() {
             // コレクションカードのタイトル領域をクリックされたとき
-            this.$dom.on('click', '', function (e) {});
+            this.$dom.on('click', '.cardtitle', function (e) {
+                var title = e.target.dataset.name;
+                console.warn(title);
+            });
         }
     }]);
 
