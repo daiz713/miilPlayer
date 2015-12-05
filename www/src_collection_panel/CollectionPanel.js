@@ -112,7 +112,7 @@ class CollectionPanel {
             var id = li.category_id;
             var name = li.name;
             var card = self.createCard([id, name], api, '', false);
-            card.style.backgroundImage = 'url(photos/genre/'+ id +'.png)';
+            card.style.backgroundImage = 'url(photos/genre2/'+ id +'.jpg)';
             self.insertCard(card);
         });
     }
