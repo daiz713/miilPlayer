@@ -10,6 +10,7 @@ class PhotoPanel {
     }
 
     _showPhoto (item) {
+        this.$dom.find('#photoview')[0].src = '';  // 空画面を挟む
         this.$dom.find('#photoview')[0].src = item.photo_uri;
         this.$dom[0].dataset.page = item.page_uri || '';
     }
