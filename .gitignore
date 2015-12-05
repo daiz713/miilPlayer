@@ -4,3 +4,4 @@ bower_components/
 /miil-dev-server/vendor/bundle
 /miil-dev-server/test-*.json
 prev--*
+/www/photos/dev-*.js
