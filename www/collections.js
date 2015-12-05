@@ -21,11 +21,12 @@ var PhotosStage = (function () {
             // コレクションカードのタイトル領域をクリックされたとき
             this.$dom.on('click', '.cardtitle', function (e) {
                 var title = e.target.dataset.name;
+                var api = e.target.dataset.api + '/';
                 // miniPlayerを開く
                 chrome.runtime.sendMessage({
                     type: 'openMiniPlayer',
                     collection_name: title,
-                    api: 'creations/'
+                    api: api
                 }, null);
             });
         }

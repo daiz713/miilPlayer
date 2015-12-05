@@ -107,9 +107,13 @@ var MiilPlayer = (function () {
         value: function beginSlideshow() {
             var api = this.getQueryAPI();
             var collectionName = this.getQueryCollectionName();
-            console.info(api, collectionName);
+            console.warn(api, collectionName);
+            // `Sample`渡されたら，必ずlocalSampleが起動する
             if (collectionName === 'Sample') {
                 this._showSamples();
+            } else {
+                var apiUrl = this.apiBase + api + '/' + collectionName + '.json';
+                this._showItemsByAPI(apiUrl);
             }
         }
 
