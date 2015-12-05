@@ -55,12 +55,15 @@ paper-icon-button {
 }
 
 .card {
-    background-color: #fff;
+    background-color: #E2DCCA;
     width: 212px;
     height: 212px;
     display: inline-block;
     margin-right: 5px;
     margin-bottom: 8px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .cardview {
@@ -79,7 +82,8 @@ paper-icon-button {
     margin-top: -42px;
     opacity: 0.85;
     cursor: pointer;
-    min-height: 39px;
+    height: 39px;
+    overflow-y: hidden;
 }
 
 .cardtitle:hover {

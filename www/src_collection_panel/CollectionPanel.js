@@ -57,18 +57,20 @@ class CollectionPanel {
     }
 
     // カードDOMオブジェクトをつくる
-    createCard (name, api, cover) {
+    createCard (names, api, cover, fg) {
+        if (fg === null || fg === undefined) fg = true;
         var card = document.createElement('div');
         card.className = 'card';
         var cardview = document.createElement('webview');
         cardview.id = 'card_' + Math.floor(Math.random() * 100000);
         cardview.className = 'cardview';
         cardview.src = cover;
+        cardview.style.visibility = (fg === true) ? 'visible' : 'hidden';
         var cardtitle = document.createElement('div');
         cardtitle.className = 'cardtitle';
-        cardtitle.dataset.name = name;
+        cardtitle.dataset.name = names[0];
         cardtitle.dataset.api = api;
-        cardtitle.appendChild(document.createTextNode(name));
+        cardtitle.appendChild(document.createTextNode(names[1]));
 
         card.appendChild(cardview);
         card.appendChild(cardtitle);
@@ -86,7 +88,7 @@ class CollectionPanel {
     }
 
     // APIを叩いてリストを表示する
-    callListsAPI (api, callback) {
+    callListsAPI (api) {
         var self = this;
         var apiUrl = this.apiBase + api + '/';
         var xhr = new XMLHttpRequest();
@@ -94,25 +96,34 @@ class CollectionPanel {
         xhr.responseType = 'json';
         xhr.onload = function (e) {
             var res = this.response;
-            callback(res);
+            self._showCategoryListsByAPI(res, api);
         }
         xhr.onerror = function () {
-            
         }
         xhr.send();
     }
 
-    _showListsByAPI (json) {
+    _showCategoryListsByAPI (json, api) {
+        var self = this;
         console.warn(json);
+        var list = json.list;
+        list.forEach(function (li) {
+            // サブカテゴリは無視する
+            var id = li.category_id;
+            var name = li.name;
+            var card = self.createCard([id, name], api, '', false);
+            card.style.backgroundImage = 'url(photos/genre/'+ id +'.png)';
+            self.insertCard(card);
+        });
     }
 
     // APIごとのローカルサンプルを表示する
     showLocalSamples (api) {
         if (api === 'creations') {
-            var card = this.createCard('Sample', api, sampleBase64Photos[0]);
+            var card = this.createCard(['Sample', 'Sample'], api, sampleBase64Photos[0]);
             this.insertCard(card);
         }else if (api === 'miilusers') {
-            var card = this.createCard('daiz', api, sampleBase64Photos[1]);
+            var card = this.createCard(['daiz', 'daiz'], api, sampleBase64Photos[1]);
             this.insertCard(card);
         }
     }
@@ -124,7 +135,9 @@ class CollectionPanel {
             var api = $btn[0].id;
             this.clearPhotoStage();
             this.showLocalSamples(api);
-            this.callListsAPI(api, this._showListsByAPI);
+            if (api === 'miilcategories') {
+                this.callListsAPI(api);
+            }
         });
     }
 }

@@ -34,7 +34,7 @@ def save_miil_raw (hash)
         docs = Miilraw.where(:photo_id => photo_hash['photo_id'])
         if docs.size == 0
             photo = Miilraw.new(dataset)
-            photo.save
+            # photo.save  # ここを無効化すれば保存さない
             puts 'Saved!!!! ' + photo_hash['url']
         elsif
             puts '>>>>>>>>> ' + docs[0].photo_url
