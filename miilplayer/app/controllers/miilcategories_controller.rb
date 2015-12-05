@@ -18,8 +18,8 @@ class MiilcategoriesController < ApplicationController
     def show
         @categoryId = params[:id]
         miilApiUrl = 'http://miil.me/api/photos/recent/categories/'+ @categoryId +'.json'
-        #res = open(miilApiUrl)
-        res = open('http://localhost:4567/miilcategories' + @categoryId);
+        res = open(miilApiUrl)
+        #res = open('http://localhost:4567/miilcategories' + @categoryId);
         code, message = res.status
         if code == '200'
             # DBに登録
