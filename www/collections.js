@@ -120,12 +120,24 @@ var CollectionPanel = (function () {
         // APIを叩いてリストを表示する
     }, {
         key: 'callListsAPI',
-        value: function callListsAPI(apiUrl) {
-            console.info(apiUrl);
+        value: function callListsAPI(api, callback) {
+            var self = this;
+            var apiUrl = this.apiBase + api + '/';
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', apiUrl, true);
+            xhr.responseType = 'json';
+            xhr.onload = function (e) {
+                var res = this.response;
+                callback(res);
+            };
+            xhr.onerror = function () {};
+            xhr.send();
         }
     }, {
         key: '_showListsByAPI',
-        value: function _showListsByAPI() {}
+        value: function _showListsByAPI(json) {
+            console.warn(json);
+        }
 
         // APIごとのローカルサンプルを表示する
     }, {
@@ -148,10 +160,9 @@ var CollectionPanel = (function () {
             this.$menuBar.on('click', 'paper-icon-button', function (e) {
                 var $btn = $(e.target).closest('paper-icon-button');
                 var api = $btn[0].id;
-                var apiUrl = _this2.apiBase + api + '/';
                 _this2.clearPhotoStage();
                 _this2.showLocalSamples(api);
-                _this2.callListsAPI(apiUrl);
+                _this2.callListsAPI(api, _this2._showListsByAPI);
             });
         }
     }]);

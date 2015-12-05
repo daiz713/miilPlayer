@@ -86,11 +86,24 @@ class CollectionPanel {
     }
 
     // APIを叩いてリストを表示する
-    callListsAPI (apiUrl) {
-        console.info(apiUrl);
+    callListsAPI (api, callback) {
+        var self = this;
+        var apiUrl = this.apiBase + api + '/';
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', apiUrl, true);
+        xhr.responseType = 'json';
+        xhr.onload = function (e) {
+            var res = this.response;
+            callback(res);
+        }
+        xhr.onerror = function () {
+            
+        }
+        xhr.send();
     }
 
-    _showListsByAPI () {
+    _showListsByAPI (json) {
+        console.warn(json);
     }
 
     // APIごとのローカルサンプルを表示する
@@ -109,10 +122,9 @@ class CollectionPanel {
         this.$menuBar.on('click', 'paper-icon-button', e => {
             var $btn = $(e.target).closest('paper-icon-button');
             var api = $btn[0].id;
-            var apiUrl = this.apiBase + api + '/';
             this.clearPhotoStage();
             this.showLocalSamples(api);
-            this.callListsAPI(apiUrl);
+            this.callListsAPI(api, this._showListsByAPI);
         });
     }
 }

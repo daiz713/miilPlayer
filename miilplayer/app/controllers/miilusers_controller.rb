@@ -4,6 +4,9 @@ require './app/controllers/scan_photos.rb'
 class MiilusersController < ApplicationController
 
     def index
+        render :json => {
+            'list' => []
+        }
     end
 
     # userが投稿した写真を取得する
