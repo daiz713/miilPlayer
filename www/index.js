@@ -80,6 +80,7 @@ var MiilPlayer = (function () {
         this.$window = $window;
         this.timer = null;
         this.query = $window[0].location.hash.replace('#', '');
+        this.apiBase = 'http://localhost:3000/';
         this._init();
         this.bindEvents();
         this.INTERVAL = 5000;
