@@ -23,6 +23,7 @@ body {
     padding-bottom: 20px;
     box-sizing: border-box;
     height: 600px;
+    overflow-x: hidden;
 }
 
 .appicon {
