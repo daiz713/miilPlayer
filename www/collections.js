@@ -29,6 +29,16 @@ var PhotosStage = (function () {
                     api: api
                 }, null);
             });
+            this.$dom.on('click', '.tanzakutitle', function (e) {
+                var title = e.target.dataset.name;
+                var api = e.target.dataset.api + '/';
+                // miniPlayerを開く
+                chrome.runtime.sendMessage({
+                    type: 'openMiniPlayer',
+                    collection_name: title,
+                    api: api
+                }, null);
+            });
         }
     }]);
 
@@ -88,15 +98,23 @@ var CollectionPanel = (function () {
         key: 'createCard',
         value: function createCard(names, api, cover, fg) {
             if (fg === null || fg === undefined) fg = true;
+            var t, c;
+            if (fg) {
+                t = 'cardtitle';
+                c = 'card';
+            } else {
+                t = 'tanzakutitle';
+                c = 'tanzaku';
+            }
             var card = document.createElement('div');
-            card.className = 'card';
+            card.className = c;
             var cardview = document.createElement('webview');
             cardview.id = 'card_' + Math.floor(Math.random() * 100000);
             cardview.className = 'cardview';
             cardview.src = cover;
             cardview.style.visibility = fg === true ? 'visible' : 'hidden';
             var cardtitle = document.createElement('div');
-            cardtitle.className = 'cardtitle';
+            cardtitle.className = t;
             cardtitle.dataset.name = names[0];
             cardtitle.dataset.api = api;
             cardtitle.appendChild(document.createTextNode(names[1]));
@@ -157,6 +175,8 @@ var CollectionPanel = (function () {
         value: function showLocalSamples(api) {
             if (api === 'creations') {
                 var card = this.createCard(['Sample', 'Sample'], api, sampleBase64Photos[0]);
+                this.insertCard(card);
+                var card = this.createCard(['daiz', 'daiz'], api, sampleBase64Photos[1]);
                 this.insertCard(card);
             } else if (api === 'miilusers') {
                 var card = this.createCard(['daiz', 'daiz'], api, sampleBase64Photos[1]);

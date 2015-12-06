@@ -15,7 +15,6 @@ body {
 }
 
 #appbody {
-    padding: 8px;
     padding-top: 70px;
     position: fixed;
     width: 100%;
@@ -54,39 +53,47 @@ paper-icon-button {
     margin-left: 10px;
 }
 
-.card {
+.card, .tanzaku {
     background-color: #E2DCCA;
-    width: 212px;
-    height: 212px;
+    width: 223px;
+    height: 223px;
     display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 4px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .cardview {
-    width: 212px;
-    height: 212px;
+    width: 223px;
+    height: 223px;
 }
 
-.cardtitle {
+.cardtitle, .tanzakutitle {
     position: absolute;
-    width: 212px;
+    width: 223px;
     box-sizing: border-box;
-    padding: 6px;
+    padding: 7px;
     font-family: roboto;
     font-size: 18px;
     background-color: #fff;
-    margin-top: -42px;
+    margin-top: -43px;
     opacity: 0.85;
     cursor: pointer;
-    height: 39px;
+    height: 40px;
     overflow-y: hidden;
 }
 
-.cardtitle:hover {
+.tanzaku {
+    width: 109.5px;
+}
+.tanzakutitle {
+    width: 109.5px;
+}
+
+.cardtitle:hover, .tanzakutitle:hover {
     color: #fff;
     background-color: #312319;
 }
