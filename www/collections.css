@@ -97,6 +97,8 @@ paper-icon-button {
 .cardtitle:hover, .tanzakutitle:hover {
     color: #fff;
     background-color: #312319;
+    height: 66px;
+    margin-top: -69px;
 }
 
 .cb-a {
