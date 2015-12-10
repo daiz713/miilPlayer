@@ -100,6 +100,12 @@ class CollectionPanel {
         this.$photosStage[0].appendChild(card);
     }
 
+    insertAds () {
+        var ad = document.createElement('div');
+        ad.className = 'ad_miil';
+        this.insertCard(ad);
+    }
+
     // ステージをクリア
     clearPhotoStage () {
         this.$photosStage.html('');
@@ -133,6 +139,7 @@ class CollectionPanel {
             card.style.backgroundImage = 'url(photos/genre2/'+ id +'.jpg)';
             self.insertCard(card);
         });
+        self.insertAds();
     }
 
     // APIごとのローカルサンプルを表示する

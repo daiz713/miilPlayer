@@ -129,6 +129,13 @@ var CollectionPanel = (function () {
         value: function insertCard(card) {
             this.$photosStage[0].appendChild(card);
         }
+    }, {
+        key: 'insertAds',
+        value: function insertAds() {
+            var ad = document.createElement('div');
+            ad.className = 'ad_miil';
+            this.insertCard(ad);
+        }
 
         // ステージをクリア
     }, {
@@ -167,6 +174,7 @@ var CollectionPanel = (function () {
                 card.style.backgroundImage = 'url(photos/genre2/' + id + '.jpg)';
                 self.insertCard(card);
             });
+            self.insertAds();
         }
 
         // APIごとのローカルサンプルを表示する

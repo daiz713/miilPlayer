@@ -1,6 +1,17 @@
-body {
+html, body {
     margin: 0px;
     background-color: #F7F3E8;
+}
+
+.ad_miil {
+    width: 100%;
+    height: 40px;
+    margin-top: 12px;
+    background-color: #F7F3E8;
+    background-position: bottom;
+    background-image: url(bg_footer.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 #apphead {
@@ -20,10 +31,10 @@ body {
     width: 100%;
     z-index: 10;
     overflow-y: auto;
-    padding-bottom: 20px;
     box-sizing: border-box;
     height: 600px;
     overflow-x: hidden;
+    background-color: #F7F3E8;
 }
 
 .appicon {
