@@ -79,12 +79,13 @@ paper-icon-button {
     padding: 7px;
     font-family: roboto;
     font-size: 18px;
-    background-color: #fff;
+    background-color: #F7F3E8; /*#F7F3E8;*/
     margin-top: -43px;
-    opacity: 0.85;
+    opacity: 0.80;
     cursor: pointer;
     height: 40px;
     overflow-y: hidden;
+    -webkit-transition: all 0.3s ease;
 }
 
 .tanzaku {
@@ -95,10 +96,12 @@ paper-icon-button {
 }
 
 .cardtitle:hover, .tanzakutitle:hover {
-    color: #fff;
+    color: #F7F3E8;
     background-color: #312319;
     height: 66px;
     margin-top: -69px;
+    opacity: 0.85;
+    font-size: 200;
 }
 
 .cb-a {
