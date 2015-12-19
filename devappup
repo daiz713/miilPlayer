@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd miil-dev-server
+bundle exec ruby json-api.rb

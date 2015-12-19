@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>miilPlayer Colloections</title>
+        <meta charset="utf-8">
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+        <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+        <link rel="import" href="bower_components/iron-icons/av-icons.html">
+        <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+        <link rel="import" href="bower_components/iron-icons/image-icons.html">
+        <link rel="import" href="bower_components/iron-icons/social-icons.html">
+        <link rel="stylesheet" href="collections.css">
+        <script src="jquery.min.js"></script>
+        <!-- Sample photos -->
+        <script src="photos/pancake.js"></script>
+        <script src="photos/steak.js"></script>
+    </head>
+    <body>
+        <!-- header -->
+        <div id="apphead">
+            <img src="yummy.png" class="appicon">
+            <div class="appname">
+                miilPlayer
+            </div>
+            <div class="icons">
+                <!-- iconButtonのidはapi名に対応している -->
+                <paper-icon-button id="miilusers" icon="social:people" class=""></paper-icon-button>
+                <paper-icon-button id="miilcategories" icon="label-outline" class=""></paper-icon-button>
+                <paper-icon-button id="collections" icon="apps" class=""></paper-icon-button>
+                <paper-icon-button id="creations" icon="image:assistant" class=""></paper-icon-button>
+            </div>
+        </div>
+
+        <!-- body -->
+        <div id="appbody">
+            <!--
+                <div class="card">
+                    <webview id="card_0" src="" class="cardview"></webview>
+                    <div class="cardtitle" data-name="Sample" data-api="creations">
+                        Sample
+                    </div>
+                </div>
+            -->
+        </div>
+        <!--div class="to_miil">
+        </div-->
+        <script src="collections.js"></script>
+        <script src="ui_collections.js"></script>
+    </body>
+</html>

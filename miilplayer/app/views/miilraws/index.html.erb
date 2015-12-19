@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Miilraws</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Photo title</th>
+      <th>Photo url</th>
+      <th>Page url</th>
+      <th>Category</th>
+      <th>Recipe</th>
+      <th>User</th>
+      <th>User name</th>
+      <th>User icon url</th>
+      <th>Taken at</th>
+      <th>Venue name</th>
+      <th>Venue</th>
+      <th>Venue web</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @miilraws.each do |miilraw| %>
+      <tr>
+        <td><%= miilraw.photo_id %></td>
+        <td><%= miilraw.photo_title %></td>
+        <td><%= miilraw.photo_url %></td>
+        <td><%= miilraw.page_url %></td>
+        <td><%= miilraw.category_id %></td>
+        <td><%= miilraw.recipe_id %></td>
+        <td><%= miilraw.user_id %></td>
+        <td><%= miilraw.user_name %></td>
+        <td><%= miilraw.user_icon_url %></td>
+        <td><%= miilraw.taken_at %></td>
+        <td><%= miilraw.venue_name %></td>
+        <td><%= miilraw.venue_id %></td>
+        <td><%= miilraw.venue_web %></td>
+        <td><%= link_to 'Show', miilraw %></td>
+        <td><%= link_to 'Edit', edit_miilraw_path(miilraw) %></td>
+        <td><%= link_to 'Destroy', miilraw, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Miilraw', new_miilraw_path %>

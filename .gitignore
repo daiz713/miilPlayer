@@ -1,3 +1,7 @@
 .DS_Store
 bower_components/
 /miilplayer/vendor/bundle
+/miil-dev-server/vendor/bundle
+/miil-dev-server/test-*.json
+prev--*
+/www/photos/dev-*.js

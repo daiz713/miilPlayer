@@ -1,0 +1,94 @@
+html, body {
+    margin: 0px;
+    background-color: #312319;
+}
+
+paper-fab {
+    position: relative;
+}
+
+paper-progress {
+    width: 100%;
+    top: -4px;
+}
+#progressContainer {
+    background-color: #eee !important;
+}
+#primaryProgress {
+    background-color: #312319 !important;
+}
+
+#btn-replay {
+    opacity: 0.7;
+    background-color: #312319;
+    color: #EADFC6;
+}
+
+.btns {
+    margin-top: 50px;
+    height: 60px;
+}
+
+#player-controller {
+    height: 48px;
+    width: 100%;
+    position: fixed;
+    background-color: #F7F3E8;
+    bottom: 0px;
+    opacity: 0.6;
+    box-sizing: border-box;
+}
+
+#player-header {
+    height: 48px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    box-sizing: border-box;
+    padding: 4px;
+    background-color: #312319;
+    opacity: 0.8;
+    color: #F7F3E8;
+    fill: #F7F3E8;
+}
+
+.cb {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.cbrb {
+    position: fixed;
+    bottom: -3px;
+    right: -4px;
+}
+
+#splash {
+}
+
+#photo {
+    width: 100%;
+    height: 100%;
+    background-color: #312319;
+    position: fixed;
+    top: 0px;
+    background-image: url();
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#app-title {
+    font-family: roboto;
+    color: #EADFC6;
+    font-size: 26px;
+}
+
+.app-icon {
+    width: 42px;
+}
+
+.app-face {
+    margin-top: 30px;
+}

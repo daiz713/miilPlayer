@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  photo_id: MyString
+  photo_title: MyString
+  photo_url: MyString
+  page_url: MyString
+  category_id: MyString
+  recipe_id: MyString
+  user_id: MyString
+  user_name: MyString
+  user_icon_url: MyString
+  taken_at: MyString
+  venue_name: MyString
+  venue_id: MyString
+  venue_web: MyString
+
+two:
+  photo_id: MyString
+  photo_title: MyString
+  photo_url: MyString
+  page_url: MyString
+  category_id: MyString
+  recipe_id: MyString
+  user_id: MyString
+  user_name: MyString
+  user_icon_url: MyString
+  taken_at: MyString
+  venue_name: MyString
+  venue_id: MyString
+  venue_web: MyString

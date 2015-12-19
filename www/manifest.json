@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "miilPlayer2",
-  "short_name": "miilPlayer2",
-  "description": "miil photo viewer",
+  "name": "miilPlayer",
+  "short_name": "miilPlayer",
+  "description": "miil photo slideshow",
   "version": "0.0.1",
   "minimum_chrome_version": "38",
 
@@ -18,5 +18,5 @@
     }
   },
 
-  "permissions": ["storage", "<all_urls>"]
+  "permissions": ["webview", "storage", "unlimitedStorage", "<all_urls>"]
 }

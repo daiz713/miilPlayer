@@ -3,9 +3,54 @@
     <head>
         <title>miilPlayer</title>
         <meta charset="utf-8">
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+        <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+        <link rel="import" href="bower_components/iron-icons/av-icons.html">
+        <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+        <link rel="import" href="bower_components/iron-icons/image-icons.html">
+        <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+        <link rel="stylesheet" href="index.css">
         <script src="jquery.min.js"></script>
+        <!-- Sample photos -->
+        <script src="photos/miilcm.js"></script>
+        <script src="photos/steak.js"></script>
+        <script src="photos/pancake.js"></script>
+        <script src="photos/dev-pancakes-0.js"></script>
+        <script src="photos/dev-pancakes-1.js"></script>
+        <script src="photos/dev-pancakes-2.js"></script>
+        <script src="photos/miillunch.js"></script>
+        <script src="photos/sushi.js"></script>
     </head>
     <body>
-        <script src="seed.js"></script>
+        <!-- PhotoPanel.js -->
+        <div id="photo" data-page="http://blog.miil.me/">
+            <webview id="photoview" src=""
+                autosize="off"
+                style="width:296px; height:296px; background-color:rgba(0,0,0,0);"
+                allowtransparency="on"></webview>
+        </div>
+        <!-- MenuBar.js -->
+        <div id="player-header">
+            <center>
+                <paper-icon-button id="btn_user_photos" icon="account-box" class="cb"></paper-icon-button>
+                <paper-icon-button icon="star-border" class="cb"></paper-icon-button>
+                <paper-icon-button id="btn_open_collections" icon="image:collections-bookmark" class="cb"></paper-icon-button>
+                <paper-icon-button id="btn_open_page" icon="open-in-new" class="cb"></paper-icon-button>
+            </center>
+        </div>
+        <!-- PagerBar.js -->
+        <div id="player-controller">
+            <paper-progress value="0" max="0" id="progress"></paper-progress>
+            <center>
+                <paper-icon-button id="btn-prev" icon="av:skip-previous" class="cb"></paper-icon-button>
+                <paper-icon-button id="btn-center" icon="av:replay" class="cb"></paper-icon-button>
+                <paper-icon-button id="btn-next" icon="av:skip-next" class="cb"></paper-icon-button>
+            </center>
+            <paper-icon-button icon="subject" class="cbrb"></paper-icon-button>
+        </div>
+
+        <script src="index.js"></script>
+        <script src="ui.js"></script>
     </body>
 </html>
